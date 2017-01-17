@@ -92,7 +92,7 @@ public class MiniArrayList<T> implements List<T> {
 
   @Override
   public Object[] toArray() {
-    return data;
+    return Arrays.copyOf(data, size);
   }
 
   @Override
