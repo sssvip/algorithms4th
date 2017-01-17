@@ -191,8 +191,8 @@ public void addTest() {
   
   reason as follow:
   
-  1. the JDK's API through thousand of people check,error rate lower than your implement.
-  2. you implement may be not consider many you didn't consider situation,such as the arguments null.
+  1. the JDK's API through thousands of people check,error rate lower than your implement.
+  2. your implement may be not consider many you didn't consider situation,such as the arguments null.
 
 - about the this.size() issue,this is a mistake,so you know the knowledge may be you will code error.
 - Maybe use many times ArrayList,but just know a little knowledge about ArrayList,so should see the source code more and more.
