@@ -7,4 +7,4 @@
 
 ### LIST
 
-[MiniArrayList的实现过程](list/README.md)
+[MiniArrayList的实现过程](src/fundamentals/list/README.md)
