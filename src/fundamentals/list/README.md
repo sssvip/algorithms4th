@@ -185,6 +185,17 @@ public void addTest() {
     System.out.println(Arrays.toString(arrayList.toArray()));//[test0, test1, test2, test3, test4]
 }
 ```
+#### d. Conclusion about addTest()
+
+- forget use System.copyOf() reference API,if it suit you situation, you should use JDK'S API first,not implement again.
+  
+  reason as follow:
+  
+  1. the JDK's API through thousand of people check,error rate lower than your implement.
+  2. you implement may be not consider many you didn't consider situation,such as the arguments null.
+
+- about the this.size() issue,this is a mistake,so you know the knowledge may be you will code error.
+- Maybe use many times ArrayList,but just know a little knowledge about ArrayList,so should see the source code more and more.
 
 As you can see, in addTest() MiniArrayList's output is consistent with ArrayList.
   
