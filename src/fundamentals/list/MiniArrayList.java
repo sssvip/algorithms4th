@@ -66,7 +66,7 @@ public class MiniArrayList<T> implements List<T> {
 
   @Override
   public int size() {
-    return this.size();
+    return this.size;
   }
 
   @Override
