@@ -1,18 +1,18 @@
 # MiniArrayList Change Log
 
-> This just a impletement process about List interface, I want to record the whole process of impletement the list. 
+> This just a Implement process about List interface, I want to record the whole process of Implement the list. 
 
 > 仅仅是想完整记录List整个实现过程,从中去发现问题，学习JDK中ArrayLists,如果对你有帮助那就更好了。
 
 
-### 1. Impletement Simple 简单实现(暴露问题)
+### 1. Implement Simple 简单实现(暴露问题)
 
 ```html 
 git checkout MiniArrayList_V0.1
 ```
 
-As you can see a MiniArrayList in the list folder, and this class impletement the List interface.
-You should know this MiniArrayList version just a simple impletement of the List interface,a few methon not to impletement really,such as
+As you can see a MiniArrayList in the list folder, and this class Implement the List interface.
+You should know this MiniArrayList version just a simple Implement of the List interface,a few methon not to Implement really,such as
 `spliterator()`,`listIterator()`etc. 
 
 Another important point you should know that this version hadn't test,I want to test and compare with ArrayList(in JDK) at next step.
@@ -141,7 +141,7 @@ more issue detail see: [https://github.com/sssvip/algorithms4th/issues](https://
        ```
 
 - issue #3: **thinking and solving process**
-    1. Now I toArray() will return the all of Object[],it include null space
+    1. Now MiniArrayList toArray() will return the all of Object[],it include null space
     2. I must to see ArrayList class's toArray(),I guess it must handled the data array.
     3. After see ArrayList class's toArray(),That's a surprise,oh my god,I didn't think I should copy the value data to user,I just return the Object[].
     4. Let's see the code of ArrayList class's toArray():
