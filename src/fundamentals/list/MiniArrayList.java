@@ -63,6 +63,7 @@ public class MiniArrayList<T> implements List<T> {
       checkSize(addSize);
     }
   }
+
   //test fix commit close issue
   @Override
   public int size() {
@@ -337,4 +338,19 @@ public class MiniArrayList<T> implements List<T> {
     return null;
   }
 
+  @Override
+  public String toString() {
+    if (this.size < 1) {
+      return "[]";
+    }
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append("[");
+    for (int i = 0; i < this.size; i++) {
+      stringBuilder.append(data[i].toString());
+      if (i != this.size - 1) {
+        stringBuilder.append(',').append(' ');
+      }
+    }
+    return stringBuilder.append("]").toString();
+  }
 }
