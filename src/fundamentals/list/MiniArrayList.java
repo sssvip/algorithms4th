@@ -63,7 +63,7 @@ public class MiniArrayList<T> implements List<T> {
       checkSize(addSize);
     }
   }
-
+  //test fix commit close issue
   @Override
   public int size() {
     return this.size;
