@@ -76,12 +76,8 @@ public class MiniArrayList<T> implements List<T> {
 
   @Override
   public boolean contains(Object object) {
-    for (Object element : data) {
-      if (element.equals(object)) {
-        return true;
-      }
-    }
-    return false;
+
+    return indexOf(object)>=0;
   }
 
   @Override
@@ -224,10 +220,10 @@ public class MiniArrayList<T> implements List<T> {
     for (int i = 0; i < size; i++) {
       if (!c.contains(data[i])) {
         data[i] = null;
+        occupyNull();
         size--;
       }
     }
-    occupyNull();
     return false;
   }
 
