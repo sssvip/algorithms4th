@@ -60,7 +60,7 @@ public class MiniArrayListCompareTest {
     System.out.println(arrayList.indexOf("indexTest1"));//1
 
     //test print object last index
-    //System.out.println(miniArrayList.lastIndexOf("indexTest2"));//NullPointerException
+    System.out.println(miniArrayList.lastIndexOf("indexTest2"));//NullPointerException
     System.out.println(arrayList.lastIndexOf("indexTest2"));//5
 
     //test print isEmpty
