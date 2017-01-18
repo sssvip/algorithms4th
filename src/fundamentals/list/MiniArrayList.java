@@ -114,9 +114,11 @@ public class MiniArrayList<T> implements List<T> {
   private void occupyNull() {
     for (int i = 0; i < size; i++) {
       if (data[i] == null) {
-        if (nextNotNullIndex(i) > 0) {
-          data[i] = data[nextNotNullIndex(i)];
-          data[nextNotNullIndex(i)] = null;
+        int nextNotNullIndex=nextNotNullIndex(i);
+        if (nextNotNullIndex > 0) {
+          data[i] = data[nextNotNullIndex];
+          data[nextNotNullIndex] = null;
+          occupyNull();
         } else {
           return;
         }
