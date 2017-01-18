@@ -185,6 +185,9 @@ public void addTest() {
     System.out.println(Arrays.toString(arrayList.toArray()));//[test0, test1, test2, test3, test4]
 }
 ```
+
+As you can see, in addTest() MiniArrayList's output is consistent with ArrayList.
+
 #### d. Conclusion about addTest()
 
 - forget use System.copyOf() reference API,if it suit you situation, you should use JDK'S API first,not implement again.
@@ -197,6 +200,14 @@ public void addTest() {
 - about the this.size() issue,this is a mistake,so you know the knowledge may be you will code error.
 - Maybe use many times ArrayList,but just know a little knowledge about ArrayList,so should see the source code more and more.
 
-As you can see, in addTest() MiniArrayList's output is consistent with ArrayList.
-  
- 
+
+
+ ### 3. indexTest
+ reference API: 
+
+ - MiniArrayList()  --constitution method
+ - indexOf(Object o) --return the index of Object in List,return -1 if not exist
+ - lastIndexOf(Object o)  --return the last index of Object in List,return -1 if not exist
+ - clear() --clear the data of List
+ - isEmpty() --return true if List have data,vice versa 
+
