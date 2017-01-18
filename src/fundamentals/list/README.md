@@ -347,3 +347,16 @@ public void indexTest() {
 #### d. Conclusion about indexTest()
 Although just a little mistake about to control the value of i in the for cycle,but it can show the careless when code.
 More careful,more careful.
+
+
+### 5. The end about MiniArrayList
+more test see the MiniArrayListCompareTest.java. I use the method above to research the API of List,include improve impression and code ability.
+
+fixed issues include #5, #6, #7. 
+
+To be honest,This MiniArrayList has many issue,and many not implement method,such as return null value.To complete the MiniArrayList have a simple way that use the method like `addTest` and `indexTest` process.
+
+Just use many time to see ArrayList source code and compare with it. And you fix it.
+
+This time to implement the MiniArrayList can find many issue about mine.I hope their level is getting better and better
+about thinking and coding.
