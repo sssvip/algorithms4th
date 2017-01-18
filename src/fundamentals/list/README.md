@@ -301,7 +301,7 @@ MiniArrayList lastIndexOf() in for cycle had a incorrect usage that control the 
 
 #### c. indexTest() Run again
 
-checkout the fix code use follow comman:
+checkout the fix code use follow command:
 ```html
 check out MiniArrayList_indexTest_fixed
 ```
