@@ -1,6 +1,5 @@
 package fundamentals.list;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
@@ -189,7 +188,7 @@ public class MiniArrayList<T> implements List<T> {
    */
   @Override
   public boolean addAll(int index, Collection<? extends T> c) {
-    if (index < 0) {
+    if (index < 0||index>size-1) {
       return false;
     }
     int newSize = index + c.size();
@@ -320,7 +319,7 @@ public class MiniArrayList<T> implements List<T> {
     if (toIndex < fromIndex) {
       throw new RuntimeException("index range error");
     }
-    List<T> subList = new ArrayList<T>(toIndex - fromIndex);
+    List<T> subList = new MiniArrayList<T>(toIndex - fromIndex);
     for (int i = fromIndex; i < toIndex; i++) {
       subList.add((T) data[i]);
     }
