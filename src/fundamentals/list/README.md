@@ -211,7 +211,7 @@ As you can see, in addTest() MiniArrayList's output is consistent with ArrayList
 
 
 
-### 3. indexTest
+### 4. indexTest
  reference API: 
 
  - MiniArrayList()  --constitution method
