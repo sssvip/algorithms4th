@@ -3,7 +3,7 @@
 
 > InsertSort Class extends Sortable
 
-You can run main methon to test.
+You can run main method to test.
 
 ```html
 /**
