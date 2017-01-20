@@ -1,7 +1,7 @@
-# InsertSort
+# SelectSort
 
 
-> InsertSort Class extends Sortable
+> SelectSort Class extends Sortable
 
 You can run main methon to test.
 
