@@ -1,6 +1,5 @@
 package fundamentals.sort.common;
 
-
 /**
  * The interface Sortable.
  */
