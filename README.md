@@ -6,8 +6,8 @@
 
 
 ### Sort
-[InsertSort](src/fundamentals/sort/insertsort/README.md)
+[InsertSort](src/fundamentals/sort/insertsort/)
 
 ### List
 
-[MiniArrayList的实现过程](src/fundamentals/list/README.md)
+[MiniArrayList的实现过程](src/fundamentals/list/)
