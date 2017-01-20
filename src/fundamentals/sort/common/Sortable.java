@@ -85,11 +85,11 @@ public abstract class Sortable {
    * @param toIndex   the offset
    */
   public void checkOffset(Comparable[] a, int fromIndex, int toIndex) {
-    if (fromIndex < 0) {
-      throw new RuntimeException("fromIndex not be allowed less than zero");
+    if (fromIndex < 0 || toIndex < 0) {
+      throw new RuntimeException("fromIndex and toIndex not be allowed less than zero");
     }
-    if (toIndex > a.length) {
-      throw new RuntimeException("toIndex can't greater than a.lenght");
+    if (toIndex > a.length || toIndex < fromIndex) {
+      throw new RuntimeException("toIndex can't greater than a.lenght or less than fromIndex");
     }
   }
 }
