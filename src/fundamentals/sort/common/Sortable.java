@@ -74,4 +74,23 @@ public abstract class Sortable {
    * @param offset the offset
    */
   public abstract void sort(Comparable[] a, int index, int offset);
+
+
+  /**
+   * index can't less than 0;
+   * <p>
+   * index+offset can't greater than a.length
+   *
+   * @param a      the a
+   * @param index  the index
+   * @param offset the offset
+   */
+  public void checkOffset(Comparable[] a, int index, int offset) {
+    if (index < 0) {
+      throw new RuntimeException("index not be allowed less than zero");
+    }
+    if ((index + offset) > a.length) {
+      throw new RuntimeException("index+offset can't greater than a.lenght");
+    }
+  }
 }
