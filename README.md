@@ -10,6 +10,8 @@
 
 [InsertSort](src/fundamentals/sort/insertsort/)
 
+[ShellSort](src/fundamentals/sort/shellsort/)
+
 ### List
 
 [MiniArrayList的实现过程](src/fundamentals/list/)
