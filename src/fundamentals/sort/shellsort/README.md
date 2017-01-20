@@ -3,7 +3,7 @@
 
 > ShellSort Class extends Sortable
 
-the importance think about shell sort is that devide the array and use insert sort again and again
+the important thinking about shell sort is that divide the array and use insert sort again and again
 
 You can run main method to test.
 
