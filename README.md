@@ -6,6 +6,7 @@
 
 
 ### Sort
+[SelectSort](src/fundamentals/sort/selectsort/)
 [InsertSort](src/fundamentals/sort/insertsort/)
 
 ### List
