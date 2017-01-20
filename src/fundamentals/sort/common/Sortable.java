@@ -80,16 +80,16 @@ public abstract class Sortable {
    * <p>
    * index+offset can't greater than a.length
    *
-   * @param a      the a
-   * @param index  the index
-   * @param offset the offset
+   * @param a         the a
+   * @param fromIndex the index
+   * @param toIndex   the offset
    */
-  public void checkOffset(Comparable[] a, int index, int offset) {
-    if (index < 0) {
-      throw new RuntimeException("index not be allowed less than zero");
+  public void checkOffset(Comparable[] a, int fromIndex, int toIndex) {
+    if (fromIndex < 0) {
+      throw new RuntimeException("fromIndex not be allowed less than zero");
     }
-    if ((index + offset) > a.length) {
-      throw new RuntimeException("index+offset can't greater than a.lenght");
+    if (toIndex > a.length) {
+      throw new RuntimeException("toIndex can't greater than a.lenght");
     }
   }
 }

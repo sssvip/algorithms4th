@@ -10,10 +10,9 @@ public class InsertSort extends Sortable {
 
 
   @Override
-  public void sort(Comparable[] a, int index, int offset) {
-    checkOffset(a, index, offset);
-    int end = index + offset;
-    for (int i = index; i < end; i++) {
+  public void sort(Comparable[] a, int index, int toIndex) {
+    checkOffset(a, index, toIndex);
+    for (int i = index; i < toIndex; i++) {
       //insert a[j] to the sorted array
       for (int j = i; j > 0 && less(a[j], a[j - 1]); j--) {
         exch(a, j, j - 1);

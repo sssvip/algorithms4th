@@ -8,12 +8,11 @@ import fundamentals.sort.common.Sortable;
  */
 public class SelectSort extends Sortable {
   @Override
-  public void sort(Comparable[] a, int index, int offset) {
-    checkOffset(a, index, offset);
-    int end = index + offset;
-    for (int i = index; i < end; i++) {
+  public void sort(Comparable[] a, int index, int toIndex) {
+    checkOffset(a, index, toIndex);
+    for (int i = index; i < toIndex; i++) {
       //find the min
-      for (int j = i; j < end; j++) {
+      for (int j = i; j < toIndex; j++) {
         if (!less(a[i], a[j])) {
           exch(a, i, j);
         }
