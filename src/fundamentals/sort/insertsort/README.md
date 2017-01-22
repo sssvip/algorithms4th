@@ -26,3 +26,4 @@ public static void main(String[] args) {
 }
 ```
 
+More details:[InsertSort.java](InsertSort.java)

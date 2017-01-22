@@ -10,12 +10,12 @@ public class MergeSort extends Sortable {
 
   private void merge(Comparable[] a, int fromIndex, int mid, int toIndex) {
     checkOffset(a, fromIndex, toIndex);
-    //get left half data
+    //get left half part data
     Comparable[] left = new Comparable[mid - fromIndex];
     for (int i = 0; i < left.length; i++) {
       left[i] = a[i + fromIndex];
     }
-    //get right half data
+    //get right half part data
     Comparable[] right = new Comparable[toIndex - mid];
     for (int i = 0; i < right.length; i++) {
       right[i] = a[i + mid];
