@@ -66,11 +66,11 @@ public abstract class Sortable {
   }
 
   /**
-   * sort array a from i to j
+   * sort array a from fromIndex to toIndex
    *
    * @param a         the a
-   * @param fromIndex the
-   * @param toIndex   the offset
+   * @param fromIndex the fromIndex
+   * @param toIndex   the toIndex
    */
   public abstract void sort(Comparable[] a, int fromIndex, int toIndex);
 
@@ -78,7 +78,7 @@ public abstract class Sortable {
   /**
    * index can't less than 0;
    * <p>
-   * index+offset can't greater than a.length
+   * toIndex can't greater than a.length
    *
    * @param a         the a
    * @param fromIndex the index
