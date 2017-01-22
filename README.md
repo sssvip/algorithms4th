@@ -12,6 +12,8 @@
 
 [ShellSort](src/fundamentals/sort/shellsort/)
 
+[MergeSort](src/fundamentals/sort/mergesort/)
+
 ### List
 
 [MiniArrayList的实现过程](src/fundamentals/list/)
