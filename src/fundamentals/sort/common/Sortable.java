@@ -1,7 +1,7 @@
 package fundamentals.sort.common;
 
 /**
- * The interface Sortable.
+ * The abstract class Sortable.
  */
 public abstract class Sortable {
   /**
@@ -68,9 +68,9 @@ public abstract class Sortable {
   /**
    * sort array a from i to j
    *
-   * @param a      the a
-   * @param fromIndex  the
-   * @param toIndex the offset
+   * @param a         the a
+   * @param fromIndex the
+   * @param toIndex   the offset
    */
   public abstract void sort(Comparable[] a, int fromIndex, int toIndex);
 
