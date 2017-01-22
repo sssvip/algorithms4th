@@ -69,10 +69,10 @@ public abstract class Sortable {
    * sort array a from i to j
    *
    * @param a      the a
-   * @param index  the
-   * @param offset the offset
+   * @param fromIndex  the
+   * @param toIndex the offset
    */
-  public abstract void sort(Comparable[] a, int index, int offset);
+  public abstract void sort(Comparable[] a, int fromIndex, int toIndex);
 
 
   /**
