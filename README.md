@@ -14,6 +14,8 @@
 
 [MergeSort](src/fundamentals/sort/mergesort/)
 
+[QuickSort](src/fundamentals/sort/quicksort/)
+
 ### List
 
 [MiniArrayList的实现过程](src/fundamentals/list/)
