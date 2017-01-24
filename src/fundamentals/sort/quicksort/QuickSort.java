@@ -7,43 +7,44 @@ import fundamentals.sort.common.Sortable;
  */
 public class QuickSort extends Sortable {
   private int partition(Comparable[] a, int fromIndex, int toIndex) {
-    //checkOffset(a, fromIndex, toIndex);
     //define a couple of pointer
     int i = fromIndex;
-    int j = toIndex;
-    //store value temporarily
-    Comparable pivot = a[fromIndex];
+    int j = toIndex + 1;
+    Comparable v = a[fromIndex];
     while (true) {
-      //compare and move pointer to right
-      while (less(a[i++], pivot)) {
+      //move left pointer
+      while (less(a[++i], v)) {
         if (i == toIndex) {
           break;
         }
       }
-      //compare and move pointer to left
-      while (less(pivot, a[--j])) {
+      //move right pointer
+      while (less(v, a[--j])) {
         if (j == fromIndex) {
           break;
         }
       }
+      //ensure bound
       if (i >= j) {
         break;
       }
+      //exchange and run again
       exch(a, i, j);
     }
+    //exchange pivot and return the index
     exch(a, fromIndex, j);
     return j;
   }
 
   @Override
   public void sort(Comparable[] a, int fromIndex, int toIndex) {
-    checkOffset(a, fromIndex, toIndex);
-    if (fromIndex >= toIndex) {
+    //checkOffset(a, fromIndex, toIndex);
+    if (toIndex <= fromIndex) {
       return;
     }
     int j = partition(a, fromIndex, toIndex);
-    sort(a, fromIndex, j);
-    sort(a, j, toIndex);
+    sort(a, fromIndex, j - 1);
+    sort(a, j + 1, toIndex);
   }
 
   /**
@@ -52,10 +53,10 @@ public class QuickSort extends Sortable {
    * @param args the input arguments
    */
   public static void main(String[] args) {
-    Integer[] integers = new Integer[] {10,8,3,1,5,4};
+    Integer[] integers = new Integer[] {1000, 84, 35, 1, 5, 4, 3, 5, 22, 1};
     QuickSort quickSort = new QuickSort();
-    quickSort.show(integers);
-    quickSort.sort(integers);
-    quickSort.show(integers);
+    quickSort.show(integers);//1000 84 35 1 5 4 3 5 22 1
+    quickSort.sort(integers, 0, integers.length - 1);
+    quickSort.show(integers);//1 1 3 4 5 5 22 35 84 1000
   }
 }
