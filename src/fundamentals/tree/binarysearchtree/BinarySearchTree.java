@@ -1,6 +1,7 @@
 package fundamentals.tree.binarysearchtree;
 
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Iterator;
@@ -135,39 +136,101 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     print(x.right);
   }
 
+  /**
+   * Max key.
+   *
+   * @return the key
+   */
   public Key max() {
-    return null;
+    Node node = root;
+    while (node.right != null) {
+      node = node.right;
+    }
+    return node.key;
   }
 
+  /**
+   * Min key.
+   *
+   * @return the key
+   */
   public Key min() {
-    return null;
+    Node node = root;
+    while (node.left != null) {
+      node = node.left;
+    }
+    return node.key;
   }
 
+  /**
+   * Floor key.
+   *
+   * @param key the key
+   * @return the key
+   */
   public Key floor(Key key) {
     return null;
   }
 
+  /**
+   * Ceiling key.
+   *
+   * @param key the key
+   * @return the key
+   */
   public Key ceiling(Key key) {
     return null;
   }
 
+  /**
+   * Select key.
+   *
+   * @param k the k
+   * @return the key
+   */
   public Key select(int k) {
     return null;
   }
 
+  /**
+   * Rank key.
+   *
+   * @param key the key
+   * @return the key
+   */
   public Key rank(Key key) {
     return null;
   }
 
+  /**
+   * Delete.
+   *
+   * @param key the key
+   */
   public void delete(Key key) {
   }
 
+  /**
+   * Delete min.
+   *
+   * @param key the key
+   */
   public void deleteMin(Key key) {
   }
 
+  /**
+   * Delete max.
+   *
+   * @param key the key
+   */
   public void deleteMax(Key key) {
   }
 
+  /**
+   * Keys iterator.
+   *
+   * @return the iterator
+   */
   public Iterator<Node> keys() {
     return null;
   }
@@ -201,5 +264,19 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     *110
     *120
     * */
+  }
+
+  /**
+   * Max and min test.
+   */
+  @Test
+  public void maxAndMinTest() {
+    BinarySearchTree tree = new BinarySearchTree();
+    Integer[] integers = new Integer[] {100, 90, 110, 80, 95, 105, 120};
+    for (Integer i : integers) {
+      tree.put(i, i + "-");
+    }
+    Assert.assertEquals(120, tree.max());
+    Assert.assertEquals(80, tree.min());
   }
 }
