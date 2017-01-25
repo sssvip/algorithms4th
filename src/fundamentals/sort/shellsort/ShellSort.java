@@ -39,5 +39,6 @@ public class ShellSort extends Sortable {
     shellSort.show(integers);//1 2 1 45 32 52 12 11 22 322 4 42 3 45 64 45 4
     shellSort.sort(integers);
     shellSort.show(integers);//1 1 2 3 4 4 11 12 22 32 42 45 45 45 52 64 322
+    shellSort.noticeIfNotSorted(integers);
   }
 }

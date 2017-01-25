@@ -32,6 +32,7 @@ public class InsertSort extends Sortable {
     insertSort.show(integers);//1 2 4 1 3 1 4 4 6 7 4 4 33 1
     insertSort.sort(integers);
     insertSort.show(integers);//1 1 1 1 2 3 4 4 4 4 4 6 7 33
+    insertSort.noticeIfNotSorted(integers);
     //sort from 3 to 5
     Double[] doubles = new Double[] {12.2, 212.2, 21.2, 53.1, 777.1, 1232.1, 444.14, 456.6};
     insertSort.show(doubles);//12.2 212.2 21.2 53.1 777.1 1232.1 444.14 456.6
