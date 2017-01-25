@@ -210,20 +210,48 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
   public void delete(Key key) {
   }
 
-  /**
-   * Delete min.
-   *
-   * @param key the key
-   */
-  public void deleteMin(Key key) {
-  }
 
   /**
-   * Delete max.
+   * Delete min node.
    *
-   * @param key the key
+   * @return the node
    */
-  public void deleteMax(Key key) {
+  public Node deleteMin() {
+    Node node = root;
+    while (node.left != null) {
+      if (node.left.left == null) {
+        //store the min node
+        Node min = node.left;
+        //delete min node
+        node.left = null;
+        return min;
+      }
+      node = node.left;
+    }
+    //unreachable
+    return node;
+  }
+
+
+  /**
+   * Delete max node.
+   *
+   * @return the node
+   */
+  public Node deleteMax() {
+    Node node = root;
+    while (node.right != null) {
+      if (node.right.right == null) {
+        //store the max node
+        Node min = node.right;
+        //delete max node
+        node.right = null;
+        return min;
+      }
+      node = node.right;
+    }
+    //unreachable
+    return node;
   }
 
   /**
@@ -278,5 +306,42 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     }
     Assert.assertEquals(120, tree.max());
     Assert.assertEquals(80, tree.min());
+  }
+
+
+  /**
+   * Delete min test.
+   */
+  @Test
+  public void deleteMinTest() {
+    BinarySearchTree tree = new BinarySearchTree();
+    Integer[] integers = new Integer[] {100, 90, 110, 80, 95, 105, 120};
+    for (Integer i : integers) {
+      tree.put(i, i + "-");
+    }
+    //get min node key
+    Comparable key = tree.min();
+    //delete min node and assert it
+    Assert.assertEquals(key, tree.deleteMin().key);
+    //assert min change to 90
+    Assert.assertEquals(90, tree.min());
+  }
+
+  /**
+   * Delete max test.
+   */
+  @Test
+  public void deleteMaxTest() {
+    BinarySearchTree tree = new BinarySearchTree();
+    Integer[] integers = new Integer[] {100, 90, 110, 80, 95, 105, 120};
+    for (Integer i : integers) {
+      tree.put(i, i + "-");
+    }
+    //get max node key
+    Comparable key = tree.max();
+    //delete max node and assert it
+    Assert.assertEquals(key, tree.deleteMax().key);
+    //assert max change to 110
+    Assert.assertEquals(110, tree.max());
   }
 }
