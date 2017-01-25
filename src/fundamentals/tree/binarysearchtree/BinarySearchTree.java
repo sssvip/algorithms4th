@@ -4,7 +4,9 @@ package fundamentals.tree.binarysearchtree;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * The type Binary search tree.
@@ -132,8 +134,37 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
       return;
     }
     print(x.left);
-    System.out.println(x.key);
+    System.out.print(x.key + " ");
     print(x.right);
+  }
+
+
+  /**
+   * change the tree to a ArrayList(ASC BY KEY)
+   *
+   * @return the list
+   */
+  public List<Node> toArrayList() {
+    ArrayList<Node> list = new ArrayList<>();
+    add(list, root);
+    return list;
+  }
+
+  /**
+   * Add list.
+   *
+   * @param list the list
+   * @param node the node
+   * @return the list
+   */
+  private List<Node> add(List list, Node node) {
+    if (node == null) {
+      return list;
+    }
+    add(list, node.left);
+    list.add(node);
+    add(list, node.right);
+    return list;
   }
 
   /**
@@ -218,15 +249,21 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
    */
   public Node deleteMin() {
     Node node = root;
+    node.N--;
+    if (node.left == null) {
+      root = node.right;
+    }
     while (node.left != null) {
       if (node.left.left == null) {
         //store the min node
         Node min = node.left;
         //delete min node
-        node.left = null;
+        node.left = node.left.right; //important, don't delete the right subtree
         return min;
       }
       node = node.left;
+      //update N
+      node.N--;
     }
     //unreachable
     return node;
@@ -240,15 +277,21 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
    */
   public Node deleteMax() {
     Node node = root;
+    node.N--;
+    if (node.right == null) {
+      root = node.left;
+    }
     while (node.right != null) {
       if (node.right.right == null) {
-        //store the max node
+        //store the min node
         Node min = node.right;
-        //delete max node
-        node.right = null;
+        //delete min node
+        node.right = node.right.left; //important, don't delete the left subtree
         return min;
       }
       node = node.right;
+      //update N
+      node.N--;
     }
     //unreachable
     return node;
@@ -284,13 +327,9 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     tree.print();
     /*
     *the output as follow
-    *80
-    *90
-    *95
-    *100
-    *105
-    *110
-    *120
+    *
+    *80 90 95 100 105 110 120
+    *
     * */
   }
 
@@ -319,12 +358,23 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     for (Integer i : integers) {
       tree.put(i, i + "-");
     }
-    //get min node key
-    Comparable key = tree.min();
+    //get the array list of the tree
+    List<Node> nodes = tree.toArrayList();
+    for (int i = 0; i < nodes.size(); i++) {
+      System.out.print(nodes.get(i).key + " ");
+    }
     //delete min node and assert it
-    Assert.assertEquals(key, tree.deleteMin().key);
-    //assert min change to 90
-    Assert.assertEquals(90, tree.min());
+    Assert.assertEquals(nodes.get(0).key, tree.deleteMin().key); //80
+    //delete min node and assert it
+    Assert.assertEquals(nodes.get(1).key, tree.deleteMin().key); //90
+    //delete min node and assert it
+    Assert.assertEquals(nodes.get(2).key, tree.deleteMin().key); //95
+    //delete min node and assert it
+    Assert.assertEquals(nodes.get(3).key, tree.deleteMin().key); //100
+    //delete min node and assert it
+    Assert.assertEquals(nodes.get(4).key, tree.deleteMin().key); //105
+    //assert min change to 105
+    Assert.assertEquals(nodes.get(5).key, tree.min());
   }
 
   /**
@@ -337,11 +387,36 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     for (Integer i : integers) {
       tree.put(i, i + "-");
     }
+    //get the array list of the tree
+    List<Node> nodes = tree.toArrayList();
     //get max node key
     Comparable key = tree.max();
     //delete max node and assert it
-    Assert.assertEquals(key, tree.deleteMax().key);
+    Assert.assertEquals(nodes.get(nodes.size() - 1).key, tree.deleteMax().key);
+    //delete max node again
+    Assert.assertEquals(nodes.get(nodes.size() - 2).key, tree.deleteMax().key);
+    //delete max node again
+    Assert.assertEquals(nodes.get(nodes.size() - 3).key, tree.deleteMax().key);
+    //delete max node again
+    Assert.assertEquals(nodes.get(nodes.size() - 4).key, tree.deleteMax().key);
     //assert max change to 110
-    Assert.assertEquals(110, tree.max());
+    Assert.assertEquals(nodes.get(nodes.size() - 5).key, tree.max());
+  }
+
+
+  /**
+   * To array list test.
+   */
+  @Test
+  public void toArrayListTest() {
+    BinarySearchTree tree = new BinarySearchTree();
+    Integer[] integers = new Integer[] {100, 90, 110, 80, 95, 105, 120};
+    for (Integer i : integers) {
+      tree.put(i, i + "-");
+    }
+    List<Node> list = tree.toArrayList();
+    for (Node node : list) {
+      System.out.print(node.key + " ");
+    }
   }
 }
