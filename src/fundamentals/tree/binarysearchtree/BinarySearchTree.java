@@ -153,6 +153,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     tree.print();
     /*
     *the output as follow
+    *80
     *90
     *95
     *100
@@ -160,6 +161,5 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     *110
     *120
     * */
-
   }
 }
