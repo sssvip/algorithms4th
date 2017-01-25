@@ -1,6 +1,10 @@
 package fundamentals.tree.binarysearchtree;
 
 
+import org.junit.Test;
+
+import java.util.Iterator;
+
 /**
  * The type Binary search tree.
  *
@@ -131,16 +135,52 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     print(x.right);
   }
 
+  public Key max() {
+    return null;
+  }
+
+  public Key min() {
+    return null;
+  }
+
+  public Key floor(Key key) {
+    return null;
+  }
+
+  public Key ceiling(Key key) {
+    return null;
+  }
+
+  public Key select(int k) {
+    return null;
+  }
+
+  public Key rank(Key key) {
+    return null;
+  }
+
+  public void delete(Key key) {
+  }
+
+  public void deleteMin(Key key) {
+  }
+
+  public void deleteMax(Key key) {
+  }
+
+  public Iterator<Node> keys() {
+    return null;
+  }
+
   /**
-   * The entry point of application.
-   *
-   * @param args the input arguments
+   * Put test.
    */
-  public static void main(String[] args) {
+  @Test
+  public void putTest() {
     BinarySearchTree tree = new BinarySearchTree();
     Integer[] integers = new Integer[] {100, 90, 110, 80, 95, 105, 120};
     for (Integer i : integers) {
-      tree.put(i, i + "");
+      tree.put(i, i + "-");
     }
     /*
     *  the tree preview as follow
