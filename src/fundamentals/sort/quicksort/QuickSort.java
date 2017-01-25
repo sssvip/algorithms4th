@@ -58,5 +58,6 @@ public class QuickSort extends Sortable {
     quickSort.show(integers);//1000 84 35 1 5 4 3 5 22 1
     quickSort.sort(integers, 0, integers.length - 1);
     quickSort.show(integers);//1 1 3 4 5 5 22 35 84 1000
+    quickSort.noticeIfNotSorted(integers);
   }
 }
