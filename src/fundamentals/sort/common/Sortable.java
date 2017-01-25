@@ -57,6 +57,17 @@ public abstract class Sortable {
 
 
   /**
+   * Notice if not sorted.
+   *
+   * @param a the a
+   */
+  public void noticeIfNotSorted(Comparable[] a) {
+    if (!isSorted(a)) {
+      throw new RuntimeException("array not sorted,please check");
+    }
+  }
+
+  /**
    * sort array a from 0 to a.length
    *
    * @param a the a
