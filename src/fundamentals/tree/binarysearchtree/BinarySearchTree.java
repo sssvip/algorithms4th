@@ -77,7 +77,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
    * @param key the key
    * @return the value
    */
-  public Value get(Node x, Key key) {
+  private Value get(Node x, Key key) {
     if (x == null) {
       return null;
     }
