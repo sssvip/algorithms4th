@@ -195,12 +195,36 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 
   /**
    * Floor key.
+   * <p>
+   * return the key that greater than or equal it
    *
    * @param key the key
    * @return the key
    */
   public Key floor(Key key) {
-    return null;
+    Node node = floor(root, key);
+    if (node == null) {
+      return null;
+    }
+    return node.key;
+  }
+
+  private Node floor(Node node, Key key) {
+    if (node == null) {
+      return null;
+    }
+    int cmp = node.key.compareTo(key);
+    if (cmp == 0) {
+      return node;
+    } else if (cmp > 0) {
+      return floor(node.left, key);
+    }
+    Node t = floor(node.right, key);
+    if (t != null) {
+      return t;
+    } else {
+      return node;
+    }
   }
 
   /**
@@ -210,7 +234,29 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
    * @return the key
    */
   public Key ceiling(Key key) {
-    return null;
+    Node node = ceiling(root, key);
+    if (node == null) {
+      return null;
+    }
+    return node.key;
+  }
+
+  private Node ceiling(Node node, Key key) {
+    if (node == null) {
+      return null;
+    }
+    int cmp = node.key.compareTo(key);
+    if (cmp == 0) {
+      return node;
+    } else if (cmp < 0) {
+      return ceiling(node.right, key);
+    }
+    Node t = ceiling(node.left, key);
+    if (t != null) {
+      return t;
+    } else {
+      return node;
+    }
   }
 
   /**
@@ -250,8 +296,10 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
   public Node deleteMin() {
     Node node = root;
     node.N--;
+    //root node is min node
     if (node.left == null) {
       root = node.right;
+
     }
     while (node.left != null) {
       if (node.left.left == null) {
@@ -399,8 +447,12 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     Assert.assertEquals(nodes.get(nodes.size() - 3).key, tree.deleteMax().key);
     //delete max node again
     Assert.assertEquals(nodes.get(nodes.size() - 4).key, tree.deleteMax().key);
-    //assert max change to 110
-    Assert.assertEquals(nodes.get(nodes.size() - 5).key, tree.max());
+    //delete max node again
+    Assert.assertEquals(nodes.get(nodes.size() - 5).key, tree.deleteMax().key);
+    //delete max node again
+    Assert.assertEquals(nodes.get(nodes.size() - 6).key, tree.deleteMax().key);
+    //assert max change to 7th
+    Assert.assertEquals(nodes.get(nodes.size() - 7).key, tree.max());
   }
 
 
@@ -418,5 +470,35 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     for (Node node : list) {
       System.out.print(node.key + " ");
     }
+  }
+
+  /**
+   * Floor test.
+   */
+  @Test
+  public void floorTest() {
+    BinarySearchTree tree = new BinarySearchTree();
+    Integer[] integers = new Integer[] {100, 90, 110, 80, 95, 105, 120};
+    for (Integer i : integers) {
+      tree.put(i, i + "-");
+    }
+    Assert.assertEquals(120, tree.floor(121));
+    Assert.assertEquals(120, tree.floor(120));
+    Assert.assertEquals(100, tree.floor(101));
+    Assert.assertEquals(null, tree.floor(50));
+  }
+
+
+  @Test
+  public void ceilingTest() {
+    BinarySearchTree tree = new BinarySearchTree();
+    Integer[] integers = new Integer[] {100, 90, 110, 80, 95, 105, 120};
+    for (Integer i : integers) {
+      tree.put(i, i + "-");
+    }
+    Assert.assertEquals(null, tree.ceiling(121));
+    Assert.assertEquals(120, tree.ceiling(120));
+    Assert.assertEquals(100, tree.ceiling(99));
+    Assert.assertEquals(80, tree.ceiling(50));
   }
 }
