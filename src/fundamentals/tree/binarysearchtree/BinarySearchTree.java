@@ -260,13 +260,27 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
   }
 
   /**
-   * Select key.
+   * Select key. find the k-th Node's key
    *
    * @param k the k
    * @return the key
    */
   public Key select(int k) {
-    return null;
+    return select(root, k).key;
+  }
+
+  private Node select(Node node, int k) {
+    if (node == null) {
+      return null;
+    }
+    int size = size(node);
+    if (size > k) {
+      return select(node.left, k);
+    } else if (size < k) {
+      return select(node.right, k - size - 1);
+    } else {
+      return node;
+    }
   }
 
   /**
