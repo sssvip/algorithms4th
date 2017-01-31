@@ -427,7 +427,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
    * @return the iterator
    */
   public Iterator<Node> keys() {
-    return null;
+    return toArrayList().iterator();
   }
 
   /**
@@ -640,5 +640,19 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     Assert.assertEquals(6, tree.rank(120));
     //greater than max node's key
     Assert.assertEquals(7, tree.rank(121));
+  }
+
+  @Test
+  public void keysTest() {
+    BinarySearchTree tree = new BinarySearchTree();
+    Integer[] integers = new Integer[] {100, 90, 110, 80, 95, 105, 120};
+    for (Integer i : integers) {
+      tree.put(i, i + "-");
+    }
+    Iterator<Node> iterator = tree.keys();
+    while (iterator.hasNext()) {
+      Node node = iterator.next();
+      Assert.assertNotNull(node);
+    }
   }
 }
