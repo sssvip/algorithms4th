@@ -274,7 +274,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     if (node == null) {
       return null;
     }
-    int size = size(node);
+    int size = size(node.left);
     if (size > k) {
       return select(node.left, k);
     } else if (size < k) {
@@ -518,14 +518,14 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
   }
 
   @Test
-  public void sizeTest(){
+  public void sizeTest() {
     BinarySearchTree tree = new BinarySearchTree();
     Integer[] integers = new Integer[] {100, 90, 110, 80, 95, 105, 120};
     for (Integer i : integers) {
       tree.put(i, i + "-");
     }
-    List<Node> list=tree.toArrayList();
-    for (Node node:list) {
+    List<Node> list = tree.toArrayList();
+    for (Node node : list) {
       System.out.println(node.N);
     }
   }
@@ -537,6 +537,11 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     for (Integer i : integers) {
       tree.put(i, i + "-");
     }
-    System.out.println(tree.select(2));
+    System.out.println();
+    Assert.assertEquals(null, tree.select(-1));
+    Assert.assertEquals(80, tree.select(0));
+    Assert.assertEquals(95, tree.select(2));
+    Assert.assertEquals(120, tree.select(6));
+    Assert.assertEquals(null, tree.select(7));
   }
 }
