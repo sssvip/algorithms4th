@@ -186,12 +186,25 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
    * @return the key
    */
   public Key min() {
-    Node node = root;
-    while (node.left != null) {
-      node = node.left;
-    }
-    return node.key;
+//    Node node = root;
+//    while (node.left != null) {
+//      node = node.left;
+//    }
+//    return node.key;
+
+    //change to recursion
+    return min(root).key;
   }
+
+
+  private Node min(Node node) {
+    if (node.left == null) {
+      return node;
+    } else {
+      return min(node.left);
+    }
+  }
+
 
   /**
    * Floor key.
@@ -314,6 +327,32 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
    * @param key the key
    */
   public void delete(Key key) {
+    delete(root, key);
+  }
+
+  private Node delete(Node node, Key key) {
+    if (node == null) {
+      return null;
+    }
+    int cmp = key.compareTo(node.key);
+    if (cmp < 0) {
+      node.left = delete(node.left, key);
+    } else if (cmp > 0) {
+      node.right = delete(node.right, key);
+    } else {
+      if (node.right == null) {
+        return node.left;
+      }
+      if (node.left == null) {
+        return node.right;
+      }
+      Node temp = node;
+      node = min(temp.right);
+      node.right = deleteMin(temp.right);
+      node.left = temp.left;
+    }
+    node.N = size(node.left) + size(node.right) + 1;
+    return node;
   }
 
 
@@ -346,6 +385,14 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     return node;
   }
 
+  private Node deleteMin(Node node) {
+    if (node.left == null) {
+      return node.right;
+    }
+    node.left = deleteMin(node.left);
+    node.N = size(node.left) + size(node.right) + 1;
+    return node;
+  }
 
   /**
    * Delete max node.
@@ -484,6 +531,26 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     Assert.assertEquals(nodes.get(nodes.size() - 7).key, tree.max());
   }
 
+
+  @Test
+  public void deleteTest() {
+    BinarySearchTree tree = new BinarySearchTree();
+    Integer[] integers = new Integer[] {100, 90, 110, 80, 95, 105, 120};
+    for (Integer i : integers) {
+      tree.put(i, i + "-");
+    }
+    //delete node 80
+    tree.delete(80);
+    //min change to 90
+    Assert.assertEquals(90, tree.min());
+    tree.delete(120);
+    Assert.assertEquals(110, tree.max());
+    //delete node 90
+    tree.delete(90);
+    Assert.assertEquals(null, tree.select(90));
+    tree.delete(105);
+    Assert.assertEquals(null, tree.select(105));
+  }
 
   /**
    * To array list test.
