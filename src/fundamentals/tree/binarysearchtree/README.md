@@ -57,11 +57,11 @@ this method indicate that return return the key that greater than or equal it, a
 
 if current node's key equal then return current node's key. if current node's key greater than key find continue in the left subtree. They both are not true,then find in the right subtree.
 
--- **Key ceiling(Key key)**:
+- **Key ceiling(Key key)**:
 
 similar to floor method but reverse. 
 
--- **Key select(int k)**:
+- **Key select(int k)**:
 
 This method to find the k-th node's key.
 
