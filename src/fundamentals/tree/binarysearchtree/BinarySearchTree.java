@@ -288,10 +288,24 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
    * Rank key.
    *
    * @param key the key
-   * @return the key
+   * @return the rank
    */
-  public Key rank(Key key) {
-    return null;
+  public int rank(Key key) {
+    return rank(root, key);
+  }
+
+  private int rank(Node node, Key key) {
+    if (node == null) {
+      return 0;
+    }
+    int cmp = key.compareTo(node.key);
+    if (cmp < 0) {
+      return rank(node.left, key);
+    } else if (cmp > 0) {
+      return 1 + size(node.left) + rank(node.right, key);
+    } else {
+      return size(node.left);
+    }
   }
 
   /**
@@ -537,11 +551,27 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     for (Integer i : integers) {
       tree.put(i, i + "-");
     }
-    System.out.println();
     Assert.assertEquals(null, tree.select(-1));
     Assert.assertEquals(80, tree.select(0));
     Assert.assertEquals(95, tree.select(2));
     Assert.assertEquals(120, tree.select(6));
     Assert.assertEquals(null, tree.select(7));
+  }
+
+  @Test
+  public void rankTest() {
+    BinarySearchTree tree = new BinarySearchTree();
+    Integer[] integers = new Integer[] {100, 90, 110, 80, 95, 105, 120};
+    for (Integer i : integers) {
+      tree.put(i, i + "-");
+    }
+    //less than min node's key
+    Assert.assertEquals(0, tree.rank(50));
+    //0
+    Assert.assertEquals(0, tree.rank(80));
+    Assert.assertEquals(1, tree.rank(90));
+    Assert.assertEquals(6, tree.rank(120));
+    //greater than max node's key
+    Assert.assertEquals(7, tree.rank(121));
   }
 }
