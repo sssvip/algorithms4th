@@ -24,3 +24,5 @@
 ### Tree
 
 [BinarySearchTree](src/fundamentals/tree/binarysearchtree)
+
+[RedBlackBinarySearchTree](src/fundamentals/tree/redblackbinarysearchtree)
