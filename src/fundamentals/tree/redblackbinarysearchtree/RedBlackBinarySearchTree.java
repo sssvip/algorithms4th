@@ -1,18 +1,50 @@
 package fundamentals.tree.redblackbinarysearchtree;
 
 
+/**
+ * The type Red black binary search tree.
+ *
+ * @param <Key>   the type parameter
+ * @param <Value> the type parameter
+ */
 public class RedBlackBinarySearchTree<Key extends Comparable<Key>, Value> {
   private Node root;
   private static final boolean RED = true;
   private static final boolean BLACK = false;
 
   private class Node {
+    /**
+     * The Key.
+     */
     Key key;
+    /**
+     * The Value.
+     */
     Value value;
-    Node left, right;
+    /**
+     * The Left.
+     */
+    Node left, /**
+     * The Right.
+     */
+    right;
+    /**
+     * The N.
+     */
     int N;
+    /**
+     * The Color.
+     */
     boolean color;
 
+    /**
+     * Instantiates a new Node.
+     *
+     * @param key   the key
+     * @param value the value
+     * @param n     the n
+     * @param color the color
+     */
     public Node(Key key, Value value, int n, boolean color) {
       this.key = key;
       this.value = value;
@@ -39,6 +71,12 @@ public class RedBlackBinarySearchTree<Key extends Comparable<Key>, Value> {
     return node.N;
   }
 
+  /**
+   * Put.
+   *
+   * @param key   the key
+   * @param value the value
+   */
   public void put(Key key, Value value) {
     root = put(root, key, value);
     root.color = BLACK;
