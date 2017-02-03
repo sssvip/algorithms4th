@@ -5,6 +5,10 @@
 > 跟着《算法》第四版一边学习一边实现，目标就是实现一遍传统数据结构和算法提高自己。
 
 
+I will write down the process to remember it. 
+
+See more: [https://blog.dxscx.com/tags/algorithm/](https://blog.dxscx.com/tags/algorithm/)
+
 ### Sort
 [SelectSort](src/fundamentals/sort/selectsort/)
 
