@@ -2,7 +2,6 @@ package fundamentals.graph;
 
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * The type Graph.
@@ -62,7 +61,82 @@ public class Graph {
    * @param v the v
    * @return the iterator
    */
-  public Iterator<Integer> adj(int v) {
-    return adj[v].iterator();
+  public Iterable<Integer> adj(int v) {
+    return adj[v];
+  }
+
+  /**
+   * Degree int.
+   *
+   * @param G the g
+   * @param v the v
+   * @return the int
+   */
+  public static int degree(Graph G, int v) {
+    int degree = 0;
+    for (int w : G.adj(v)) {
+      // the iterable object just can iterable,reduce many list's method,such as size()
+      degree++;
+    }
+    return degree;
+  }
+
+  /**
+   * Max degree int.
+   *
+   * @param G the g
+   * @return the int
+   */
+  public static int maxDegree(Graph G) {
+    int max = 0;
+    for (int v = 0; v < G.V; v++) {
+      int degree = degree(G, v);
+      if (degree > max) {
+        max = degree;
+      }
+    }
+    return max;
+  }
+
+  /**
+   * Avg degree double.
+   *
+   * @param G the g
+   * @return the double
+   */
+  public static double avgDegree(Graph G) {
+    return 2 * G.E() / G.V();
+  }
+
+  /**
+   * Number of self loops int.
+   *
+   * @param G the g
+   * @return the int
+   */
+  public static int numberOfSelfLoops(Graph G) {
+    int count = 0;
+    for (int v = 0; v < G.V(); v++) {
+      for (int w : G.adj(v)) {
+        if (v == w) {
+          count++;
+        }
+      }
+    }
+    return count / 2;
+  }
+
+  @Override
+  public String toString() {
+    StringBuffer sb = new StringBuffer();
+    sb.append(V + " vertices," + E + " edges\n");
+    for (int v = 0; v < V; v++) {
+      sb.append(v + ": ");
+      for (int w : this.adj(v)) {
+        sb.append(w + " ");
+      }
+      sb.append("\n");
+    }
+    return sb.toString();
   }
 }
