@@ -4,7 +4,9 @@
 The representation and implement of Graph was separated.We will create many implement
 about each kind of graph process algorithm.
 
-#### Graph(Representation)
+### Representation
+
+#### Graph
 This implement edition was not include:
 1. add a vertex
 2. delete a vertex
@@ -16,5 +18,7 @@ The reason that this edition did not implement the methods above:
 2. Simplify implement and more focus on Graph research process.
 
 More details:[Graph.java](Graph.java)
+
+### Implement
 
 #### Search
