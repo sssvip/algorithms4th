@@ -1,6 +1,5 @@
 package fundamentals.graph;
 
-
 import java.util.ArrayList;
 
 /**
@@ -115,6 +114,7 @@ public class Graph {
    * @return the int
    */
   public static int numberOfSelfLoops(Graph G) {
+    //traverse all vertex, if vertex's adjacent table has itself vertex that show exist one self loop
     int count = 0;
     for (int v = 0; v < G.V(); v++) {
       for (int w : G.adj(v)) {
@@ -138,5 +138,43 @@ public class Graph {
       sb.append("\n");
     }
     return sb.toString();
+  }
+
+  /*
+  * adjacency table as following:
+  *
+  * 13 vertices,13 edges
+    0: 5 1 2 6
+    1: 0
+    2: 0
+    3: 4 5
+    4: 3 6 5
+    5: 0 4 3
+    6: 4 0
+    7: 8
+    8: 7
+    9: 12 10 11
+    10: 9
+    11: 12 9
+    12: 9 11
+  * */
+  public static Graph getTestGraphWithData() {
+    Graph G = new Graph(13);
+    G.addEdge(0, 5);
+    G.addEdge(4, 3);
+    G.addEdge(0, 1);
+    G.addEdge(9, 12);
+    G.addEdge(6, 4);
+    G.addEdge(5, 4);
+    G.addEdge(0, 2);
+    G.addEdge(11, 12);
+    G.addEdge(9, 10);
+    G.addEdge(0, 6);
+    G.addEdge(7, 8);
+    G.addEdge(9, 11);
+    G.addEdge(5, 3);
+    return G;
+    //do not modify it easily
+    //if you want you can create other one.
   }
 }
