@@ -84,3 +84,15 @@ index->last reachable vertex
 6->1
 ```
 so edgeTo----> {0,0,0,2,2,4,1}
+
+#### BreadthFirstPaths
+main methods:
+1. public boolean hasPathTo(int v) {...}
+
+    return the result that start vertex is reachable to the vertex `v`
+
+2. public Iterable<Integer> pathTo(int v) {...}
+
+    return one of the all paths that start vertex to the vertex `v`
+
+the main difference with DepthFirstPaths is that the private method 'dfs' and 'bfs'.
