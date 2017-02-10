@@ -77,7 +77,7 @@ public class MiniArrayList<T> implements List<T> {
   @Override
   public boolean contains(Object object) {
 
-    return indexOf(object)>=0;
+    return indexOf(object) >= 0;
   }
 
   @Override
@@ -110,7 +110,7 @@ public class MiniArrayList<T> implements List<T> {
   private void occupyNull() {
     for (int i = 0; i < size; i++) {
       if (data[i] == null) {
-        int nextNotNullIndex=nextNotNullIndex(i);
+        int nextNotNullIndex = nextNotNullIndex(i);
         if (nextNotNullIndex > 0) {
           data[i] = data[nextNotNullIndex];
           data[nextNotNullIndex] = null;
@@ -164,7 +164,8 @@ public class MiniArrayList<T> implements List<T> {
   }
 
   /**
-   * Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator.
+   * Appends all of the elements in the specified collection to the end of this list, in the order
+   * that they are returned by the specified collection's Iterator.
    *
    * @param c
    * @return
@@ -178,7 +179,8 @@ public class MiniArrayList<T> implements List<T> {
   }
 
   /**
-   * Inserts all of the elements in the specified collection into this list, starting at the specified position.
+   * Inserts all of the elements in the specified collection into this list, starting at the
+   * specified position.
    *
    * @param index
    * @param c
@@ -186,7 +188,7 @@ public class MiniArrayList<T> implements List<T> {
    */
   @Override
   public boolean addAll(int index, Collection<? extends T> c) {
-    if (index < 0||index>size-1) {
+    if (index < 0 || index > size - 1) {
       return false;
     }
     int newSize = index + c.size();
@@ -290,7 +292,7 @@ public class MiniArrayList<T> implements List<T> {
 
   @Override
   public int lastIndexOf(Object o) {
-    for (int i = size-1; i >= 0; i--) {
+    for (int i = size - 1; i >= 0; i--) {
       if (data[i].equals(o)) {
         return i;
       }

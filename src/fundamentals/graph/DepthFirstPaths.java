@@ -9,7 +9,40 @@ import java.util.Stack;
 public class DepthFirstPaths {
   //to store visit status of vertex
   private boolean[] marked;
-  //
+  //to store the last vertex, e.g. if 0 can reach 2 by vertex 1 (0->1->2),then store 1 at edgeTo[2].
+  /*
+  * e.g.
+  *
+  * paths:
+  * 0->1
+  * 1->6
+  * 0->2
+  * 2->3
+  * 2->4
+  * 4->5
+  *
+  * the graph to a tree reachable represent:
+  *
+  *       0
+  *   1      2
+  *     6  3   4
+  *               5
+  *
+  * if use 0 as start vertex,the array of edgeTo data as follows；
+  *
+  * edgeTo as follows:
+  * index->last reachable vertex
+  * 0->0
+  * 1->0
+  * 2->0
+  * 3->2
+  * 4->2
+  * 5->4
+  * 6->1
+  *
+  * edgeTo----> {0,0,0,2,2,4,1}
+  *
+  * */
   private int[] edgeTo;//key thinking
   //start vertex
   private final int s;
