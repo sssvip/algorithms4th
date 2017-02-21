@@ -113,6 +113,7 @@ more issue detail see: [https://github.com/sssvip/algorithms4th/issues](https://
          class AbstractList,AbstractCollection etc. I found the method in the AbstractCollection class.
          
         AbstractCollection class's toString() code as follow:
+        
         ```html
         public String toString() {
             Iterator<E> it = iterator();
@@ -130,7 +131,9 @@ more issue detail see: [https://github.com/sssvip/algorithms4th/issues](https://
             }
          }
         ```
+        
     3. Analyze this situation I add toString method in MiniArrayList,code as follow:
+
        ```html
        @Override
        public String toString() {
